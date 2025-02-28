@@ -1,0 +1,580 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/VINAY338/UML-Diagrams/blob/main/activity\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1RTpdl2Z-j0q",
+        "outputId": "3fceab76-f380-43c6-b1a1-3c9b74c0b7d6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Usage:   \n",
+            "  pip3 <command> [options]\n",
+            "\n",
+            "Commands:\n",
+            "  install                     Install packages.\n",
+            "  download                    Download packages.\n",
+            "  uninstall                   Uninstall packages.\n",
+            "  freeze                      Output installed packages in requirements format.\n",
+            "  inspect                     Inspect the python environment.\n",
+            "  list                        List installed packages.\n",
+            "  show                        Show information about installed packages.\n",
+            "  check                       Verify installed packages have compatible dependencies.\n",
+            "  config                      Manage local and global configuration.\n",
+            "  search                      Search PyPI for packages.\n",
+            "  cache                       Inspect and manage pip's wheel cache.\n",
+            "  index                       Inspect information available from package indexes.\n",
+            "  wheel                       Build wheels from your requirements.\n",
+            "  hash                        Compute hashes of package archives.\n",
+            "  completion                  A helper command used for command completion.\n",
+            "  debug                       Show information useful for debugging.\n",
+            "  help                        Show help for commands.\n",
+            "\n",
+            "General Options:\n",
+            "  -h, --help                  Show help.\n",
+            "  --debug                     Let unhandled exceptions propagate outside the main subroutine,\n",
+            "                              instead of logging them to stderr.\n",
+            "  --isolated                  Run pip in an isolated mode, ignoring environment variables and user\n",
+            "                              configuration.\n",
+            "  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error\n",
+            "                              otherwise.\n",
+            "  --python <python>           Run pip with the specified Python interpreter.\n",
+            "  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.\n",
+            "  -V, --version               Show version and exit.\n",
+            "  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times\n",
+            "                              (corresponding to WARNING, ERROR, and CRITICAL logging levels).\n",
+            "  --log <path>                Path to a verbose appending log.\n",
+            "  --no-input                  Disable prompting for input.\n",
+            "  --keyring-provider <keyring_provider>\n",
+            "                              Enable the credential lookup via the keyring library if user input\n",
+            "                              is allowed. Specify which mechanism to use [disabled, import,\n",
+            "                              subprocess]. (default: disabled)\n",
+            "  --proxy <proxy>             Specify a proxy in the form\n",
+            "                              scheme://[user:passwd@]proxy.server:port.\n",
+            "  --retries <retries>         Maximum number of retries each connection should attempt (default 5\n",
+            "                              times).\n",
+            "  --timeout <sec>             Set the socket timeout (default 15 seconds).\n",
+            "  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore,\n",
+            "                              (w)ipe, (b)ackup, (a)bort.\n",
+            "  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not\n",
+            "                              have valid or any HTTPS.\n",
+            "  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides\n",
+            "                              the default. See 'SSL Certificate Verification' in pip documentation\n",
+            "                              for more information.\n",
+            "  --client-cert <path>        Path to SSL client certificate, a single file containing the private\n",
+            "                              key and the certificate in PEM format.\n",
+            "  --cache-dir <dir>           Store the cache data in <dir>.\n",
+            "  --no-cache-dir              Disable the cache.\n",
+            "  --disable-pip-version-check\n",
+            "                              Don't periodically check PyPI to determine whether a new version of\n",
+            "                              pip is available for download. Implied with --no-index.\n",
+            "  --no-color                  Suppress colored output.\n",
+            "  --no-python-version-warning\n",
+            "                              Silence deprecation warnings for upcoming unsupported Pythons.\n",
+            "  --use-feature <feature>     Enable new functionality, that may be backward incompatible.\n",
+            "  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install selenium"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "m8L5i2Pt-pfi",
+        "outputId": "5cc58654-11ea-4b6e-f05a-4568317ffc79"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting selenium\n",
+            "  Downloading selenium-4.29.0-py3-none-any.whl.metadata (7.1 kB)\n",
+            "Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.11/dist-packages (from urllib3[socks]<3,>=1.26->selenium) (2.3.0)\n",
+            "Collecting trio~=0.17 (from selenium)\n",
+            "  Downloading trio-0.29.0-py3-none-any.whl.metadata (8.5 kB)\n",
+            "Collecting trio-websocket~=0.9 (from selenium)\n",
+            "  Downloading trio_websocket-0.12.1-py3-none-any.whl.metadata (5.1 kB)\n",
+            "Requirement already satisfied: certifi>=2021.10.8 in /usr/local/lib/python3.11/dist-packages (from selenium) (2025.1.31)\n",
+            "Requirement already satisfied: typing_extensions~=4.9 in /usr/local/lib/python3.11/dist-packages (from selenium) (4.12.2)\n",
+            "Requirement already satisfied: websocket-client~=1.8 in /usr/local/lib/python3.11/dist-packages (from selenium) (1.8.0)\n",
+            "Requirement already satisfied: attrs>=23.2.0 in /usr/local/lib/python3.11/dist-packages (from trio~=0.17->selenium) (25.1.0)\n",
+            "Collecting sortedcontainers (from trio~=0.17->selenium)\n",
+            "  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)\n",
+            "Requirement already satisfied: idna in /usr/local/lib/python3.11/dist-packages (from trio~=0.17->selenium) (3.10)\n",
+            "Collecting outcome (from trio~=0.17->selenium)\n",
+            "  Downloading outcome-1.3.0.post0-py2.py3-none-any.whl.metadata (2.6 kB)\n",
+            "Requirement already satisfied: sniffio>=1.3.0 in /usr/local/lib/python3.11/dist-packages (from trio~=0.17->selenium) (1.3.1)\n",
+            "Collecting wsproto>=0.14 (from trio-websocket~=0.9->selenium)\n",
+            "  Downloading wsproto-1.2.0-py3-none-any.whl.metadata (5.6 kB)\n",
+            "Requirement already satisfied: pysocks!=1.5.7,<2.0,>=1.5.6 in /usr/local/lib/python3.11/dist-packages (from urllib3[socks]<3,>=1.26->selenium) (1.7.1)\n",
+            "Requirement already satisfied: h11<1,>=0.9.0 in /usr/local/lib/python3.11/dist-packages (from wsproto>=0.14->trio-websocket~=0.9->selenium) (0.14.0)\n",
+            "Downloading selenium-4.29.0-py3-none-any.whl (9.5 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m9.5/9.5 MB\u001b[0m \u001b[31m40.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading trio-0.29.0-py3-none-any.whl (492 kB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m492.9/492.9 kB\u001b[0m \u001b[31m23.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading trio_websocket-0.12.1-py3-none-any.whl (21 kB)\n",
+            "Downloading outcome-1.3.0.post0-py2.py3-none-any.whl (10 kB)\n",
+            "Downloading wsproto-1.2.0-py3-none-any.whl (24 kB)\n",
+            "Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)\n",
+            "Installing collected packages: sortedcontainers, wsproto, outcome, trio, trio-websocket, selenium\n",
+            "Successfully installed outcome-1.3.0.post0 selenium-4.29.0 sortedcontainers-2.4.0 trio-0.29.0 trio-websocket-0.12.1 wsproto-1.2.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!apt-get update"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nJeZyZi7-srP",
+        "outputId": "a97c4b45-7f26-4189-bc22-456e5ee4df09"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]\n",
+            "Get:2 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64  InRelease [1,581 B]\n",
+            "Get:3 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease [3,632 B]\n",
+            "Hit:4 http://archive.ubuntu.com/ubuntu jammy InRelease\n",
+            "Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]\n",
+            "Get:6 https://r2u.stat.illinois.edu/ubuntu jammy InRelease [6,555 B]\n",
+            "Get:7 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64  Packages [1,317 kB]\n",
+            "Get:8 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]\n",
+            "Hit:9 https://ppa.launchpadcontent.net/deadsnakes/ppa/ubuntu jammy InRelease\n",
+            "Hit:10 https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu jammy InRelease\n",
+            "Hit:11 https://ppa.launchpadcontent.net/ubuntugis/ppa/ubuntu jammy InRelease\n",
+            "Get:12 https://r2u.stat.illinois.edu/ubuntu jammy/main all Packages [8,700 kB]\n",
+            "Get:13 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,230 kB]\n",
+            "Get:14 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [2,610 kB]\n",
+            "Get:15 https://r2u.stat.illinois.edu/ubuntu jammy/main amd64 Packages [2,661 kB]\n",
+            "Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [2,939 kB]\n",
+            "Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1,526 kB]\n",
+            "Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]\n",
+            "Fetched 21.4 MB in 3s (6,440 kB/s)\n",
+            "Reading package lists... Done\n",
+            "W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!apt-get install -y chromium-chromedriver"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8-lQNu50-2jT",
+        "outputId": "1ef68eec-06e1-438d-803d-5a304dff6017"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Reading package lists... Done\n",
+            "Building dependency tree... Done\n",
+            "Reading state information... Done\n",
+            "The following additional packages will be installed:\n",
+            "  apparmor chromium-browser libfuse3-3 liblzo2-2 snapd squashfs-tools systemd-hwe-hwdb udev\n",
+            "Suggested packages:\n",
+            "  apparmor-profiles-extra apparmor-utils fuse3 zenity | kdialog\n",
+            "The following NEW packages will be installed:\n",
+            "  apparmor chromium-browser chromium-chromedriver libfuse3-3 liblzo2-2 snapd squashfs-tools\n",
+            "  systemd-hwe-hwdb udev\n",
+            "0 upgraded, 9 newly installed, 0 to remove and 35 not upgraded.\n",
+            "Need to get 30.1 MB of archives.\n",
+            "After this operation, 123 MB of additional disk space will be used.\n",
+            "Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 apparmor amd64 3.0.4-2ubuntu2.4 [598 kB]\n",
+            "Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 liblzo2-2 amd64 2.10-2build3 [53.7 kB]\n",
+            "Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 squashfs-tools amd64 1:4.5-3build1 [159 kB]\n",
+            "Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 udev amd64 249.11-0ubuntu3.12 [1,557 kB]\n",
+            "Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libfuse3-3 amd64 3.10.5-1build1 [81.2 kB]\n",
+            "Get:6 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 snapd amd64 2.66.1+22.04 [27.6 MB]\n",
+            "Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 chromium-browser amd64 1:85.0.4183.83-0ubuntu2.22.04.1 [49.2 kB]\n",
+            "Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 chromium-chromedriver amd64 1:85.0.4183.83-0ubuntu2.22.04.1 [2,308 B]\n",
+            "Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-hwe-hwdb all 249.11.5 [3,228 B]\n",
+            "Fetched 30.1 MB in 1s (42.4 MB/s)\n",
+            "Preconfiguring packages ...\n",
+            "Selecting previously unselected package apparmor.\n",
+            "(Reading database ... 124926 files and directories currently installed.)\n",
+            "Preparing to unpack .../0-apparmor_3.0.4-2ubuntu2.4_amd64.deb ...\n",
+            "Unpacking apparmor (3.0.4-2ubuntu2.4) ...\n",
+            "Selecting previously unselected package liblzo2-2:amd64.\n",
+            "Preparing to unpack .../1-liblzo2-2_2.10-2build3_amd64.deb ...\n",
+            "Unpacking liblzo2-2:amd64 (2.10-2build3) ...\n",
+            "Selecting previously unselected package squashfs-tools.\n",
+            "Preparing to unpack .../2-squashfs-tools_1%3a4.5-3build1_amd64.deb ...\n",
+            "Unpacking squashfs-tools (1:4.5-3build1) ...\n",
+            "Selecting previously unselected package udev.\n",
+            "Preparing to unpack .../3-udev_249.11-0ubuntu3.12_amd64.deb ...\n",
+            "Unpacking udev (249.11-0ubuntu3.12) ...\n",
+            "Selecting previously unselected package libfuse3-3:amd64.\n",
+            "Preparing to unpack .../4-libfuse3-3_3.10.5-1build1_amd64.deb ...\n",
+            "Unpacking libfuse3-3:amd64 (3.10.5-1build1) ...\n",
+            "Selecting previously unselected package snapd.\n",
+            "Preparing to unpack .../5-snapd_2.66.1+22.04_amd64.deb ...\n",
+            "Unpacking snapd (2.66.1+22.04) ...\n",
+            "Setting up apparmor (3.0.4-2ubuntu2.4) ...\n",
+            "Created symlink /etc/systemd/system/sysinit.target.wants/apparmor.service → /lib/systemd/system/apparmor.service.\n",
+            "Setting up liblzo2-2:amd64 (2.10-2build3) ...\n",
+            "Setting up squashfs-tools (1:4.5-3build1) ...\n",
+            "Setting up udev (249.11-0ubuntu3.12) ...\n",
+            "invoke-rc.d: could not determine current runlevel\n",
+            "invoke-rc.d: policy-rc.d denied execution of start.\n",
+            "Setting up libfuse3-3:amd64 (3.10.5-1build1) ...\n",
+            "Setting up snapd (2.66.1+22.04) ...\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.apparmor.service → /lib/systemd/system/snapd.apparmor.service.\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.autoimport.service → /lib/systemd/system/snapd.autoimport.service.\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.core-fixup.service → /lib/systemd/system/snapd.core-fixup.service.\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.recovery-chooser-trigger.service → /lib/systemd/system/snapd.recovery-chooser-trigger.service.\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.seeded.service → /lib/systemd/system/snapd.seeded.service.\n",
+            "Created symlink /etc/systemd/system/cloud-final.service.wants/snapd.seeded.service → /lib/systemd/system/snapd.seeded.service.\n",
+            "Unit /lib/systemd/system/snapd.seeded.service is added as a dependency to a non-existent unit cloud-final.service.\n",
+            "Created symlink /etc/systemd/system/multi-user.target.wants/snapd.service → /lib/systemd/system/snapd.service.\n",
+            "Created symlink /etc/systemd/system/timers.target.wants/snapd.snap-repair.timer → /lib/systemd/system/snapd.snap-repair.timer.\n",
+            "Created symlink /etc/systemd/system/sockets.target.wants/snapd.socket → /lib/systemd/system/snapd.socket.\n",
+            "Created symlink /etc/systemd/system/final.target.wants/snapd.system-shutdown.service → /lib/systemd/system/snapd.system-shutdown.service.\n",
+            "Selecting previously unselected package chromium-browser.\n",
+            "(Reading database ... 125363 files and directories currently installed.)\n",
+            "Preparing to unpack .../chromium-browser_1%3a85.0.4183.83-0ubuntu2.22.04.1_amd64.deb ...\n",
+            "=> Installing the chromium snap\n",
+            "==> Checking connectivity with the snap store\n",
+            "===> System doesn't have a working snapd, skipping\n",
+            "Unpacking chromium-browser (1:85.0.4183.83-0ubuntu2.22.04.1) ...\n",
+            "Selecting previously unselected package chromium-chromedriver.\n",
+            "Preparing to unpack .../chromium-chromedriver_1%3a85.0.4183.83-0ubuntu2.22.04.1_amd64.deb ...\n",
+            "Unpacking chromium-chromedriver (1:85.0.4183.83-0ubuntu2.22.04.1) ...\n",
+            "Selecting previously unselected package systemd-hwe-hwdb.\n",
+            "Preparing to unpack .../systemd-hwe-hwdb_249.11.5_all.deb ...\n",
+            "Unpacking systemd-hwe-hwdb (249.11.5) ...\n",
+            "Setting up systemd-hwe-hwdb (249.11.5) ...\n",
+            "Setting up chromium-browser (1:85.0.4183.83-0ubuntu2.22.04.1) ...\n",
+            "update-alternatives: using /usr/bin/chromium-browser to provide /usr/bin/x-www-browser (x-www-browser) in auto mode\n",
+            "update-alternatives: using /usr/bin/chromium-browser to provide /usr/bin/gnome-www-browser (gnome-www-browser) in auto mode\n",
+            "Setting up chromium-chromedriver (1:85.0.4183.83-0ubuntu2.22.04.1) ...\n",
+            "Processing triggers for udev (249.11-0ubuntu3.12) ...\n",
+            "Processing triggers for mailcap (3.70+nmu1ubuntu1) ...\n",
+            "Processing triggers for hicolor-icon-theme (0.17-2) ...\n",
+            "Processing triggers for libc-bin (2.35-0ubuntu3.8) ...\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libhwloc.so.15 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtcm.so.1 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbb.so.12 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbbbind_2_0.so.3 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbbbind.so.3 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libumf.so.0 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libur_adapter_opencl.so.0 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libur_loader.so.0 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbbmalloc_proxy.so.2 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbbbind_2_5.so.3 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libur_adapter_level_zero.so.0 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtbbmalloc.so.2 is not a symbolic link\n",
+            "\n",
+            "/sbin/ldconfig.real: /usr/local/lib/libtcm_debug.so.1 is not a symbolic link\n",
+            "\n",
+            "Processing triggers for man-db (2.10.2-1) ...\n",
+            "Processing triggers for dbus (1.12.20-2ubuntu4.1) ...\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!cp /usr/lib/chromium-browser/chromedriver /usr/bin"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "brrD_8S9-8YY",
+        "outputId": "1b61cb0c-2261-4434-d9cc-a661fee47e5c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "cp: '/usr/lib/chromium-browser/chromedriver' and '/usr/bin/chromedriver' are the same file\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from selenium import webdriver\n",
+        "from selenium.webdriver.chrome.service import Service\n",
+        "from selenium.webdriver.chrome.options import Options\n",
+        "from selenium.webdriver.common.by import By\n",
+        "import time\n",
+        "import numpy as np\n",
+        "import os\n",
+        "\n",
+        "# Get the Chrome version\n",
+        "chrome_options = Options()\n",
+        "chrome_options.add_argument(\"--headless\")  # Run Chrome in headless mode\n",
+        "chrome_options.add_argument(\"--no-sandbox\")\n",
+        "chrome_options.add_argument(\"--disable-dev-shm-usage\")\n",
+        "chrome_options.add_argument('--disable-gpu')  # Disable GPU acceleration\n",
+        "user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'\n",
+        "chrome_options.add_argument(f'user-agent={user_agent}')\n",
+        "driver = webdriver.Chrome(options=chrome_options)  # Create a Chrome webdriver instance\n",
+        "driver.get(\"chrome://version\")"
+      ],
+      "metadata": {
+        "id": "btIQqs2Z_MDV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def quadratic_weather_model(t, a, b, c):\n",
+        "    return a * t**2 + b * t + c"
+      ],
+      "metadata": {
+        "id": "NyEdRxjX_guV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Generate test data\n",
+        "hours = np.arange(0, 24, 1)  # Time in hours\n",
+        "a, b, c = -0.02, 0.5, 20  # Sample coefficients\n",
+        "temperature_predictions = [quadratic_weather_model(t, a, b, c) for t in hours]\n",
+        "\n",
+        "# Print sample data\n",
+        "for h, temp in zip(hours, temperature_predictions):\n",
+        "    print(f\"Hour: {h}, Predicted Temp: {temp:.2f}°C\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "r3l32wEb_xBO",
+        "outputId": "f1b378f7-0c5f-4910-ed9c-e852dc78ac24"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hour: 0, Predicted Temp: 20.00°C\n",
+            "Hour: 1, Predicted Temp: 20.48°C\n",
+            "Hour: 2, Predicted Temp: 20.92°C\n",
+            "Hour: 3, Predicted Temp: 21.32°C\n",
+            "Hour: 4, Predicted Temp: 21.68°C\n",
+            "Hour: 5, Predicted Temp: 22.00°C\n",
+            "Hour: 6, Predicted Temp: 22.28°C\n",
+            "Hour: 7, Predicted Temp: 22.52°C\n",
+            "Hour: 8, Predicted Temp: 22.72°C\n",
+            "Hour: 9, Predicted Temp: 22.88°C\n",
+            "Hour: 10, Predicted Temp: 23.00°C\n",
+            "Hour: 11, Predicted Temp: 23.08°C\n",
+            "Hour: 12, Predicted Temp: 23.12°C\n",
+            "Hour: 13, Predicted Temp: 23.12°C\n",
+            "Hour: 14, Predicted Temp: 23.08°C\n",
+            "Hour: 15, Predicted Temp: 23.00°C\n",
+            "Hour: 16, Predicted Temp: 22.88°C\n",
+            "Hour: 17, Predicted Temp: 22.72°C\n",
+            "Hour: 18, Predicted Temp: 22.52°C\n",
+            "Hour: 19, Predicted Temp: 22.28°C\n",
+            "Hour: 20, Predicted Temp: 22.00°C\n",
+            "Hour: 21, Predicted Temp: 21.68°C\n",
+            "Hour: 22, Predicted Temp: 21.32°C\n",
+            "Hour: 23, Predicted Temp: 20.92°C\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "html_content = f\"\"\"\n",
+        "<!DOCTYPE html>\n",
+        "<html>\n",
+        "<head>\n",
+        "    <title>Weather Model Test</title>\n",
+        "</head>\n",
+        "<body>\n",
+        "    <h1>Quadratic Weather Model</h1>\n",
+        "    <table border=\"1\">\n",
+        "        <tr><th>Hour</th><th>Predicted Temperature (°C)</th></tr>\n",
+        "        {''.join([f'<tr><td>{h}</td><td>{temp:.2f}</td></tr>' for h, temp in zip(hours, temperature_predictions)])}\n",
+        "    </table>\n",
+        "</body>\n",
+        "</html>\n",
+        "\"\"\"\n",
+        "\n",
+        "# Save the HTML file\n",
+        "with open(\"weather_model.html\", \"w\") as file:\n",
+        "    file.write(html_content)\n",
+        "\n",
+        "# Move it to a temporary directory where Selenium can access it\n",
+        "import shutil\n",
+        "shutil.move(\"weather_model.html\", \"/content/weather_model.html\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "tY6ySGYb_zPz",
+        "outputId": "92bfcccc-0400-4862-dca5-ecacf80d803f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'/content/weather_model.html'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Open the local file in Selenium\n",
+        "driver.get(\"file:///content/weather_model.html\")\n",
+        "\n",
+        "# Extract the table rows\n",
+        "rows = driver.find_elements(By.TAG_NAME, \"tr\")[1:]  # Skip the header row\n",
+        "\n",
+        "# Check if extracted values match expected values\n",
+        "for i, row in enumerate(rows):\n",
+        "    cells = row.find_elements(By.TAG_NAME, \"td\")\n",
+        "    hour = int(cells[0].text)\n",
+        "    temp = float(cells[1].text)\n",
+        "\n",
+        "    expected_temp = quadratic_weather_model(hour, a, b, c)\n",
+        "    assert abs(temp - expected_temp) < 0.01, f\"Mismatch at Hour {hour}: Expected {expected_temp}, Got {temp}\"\n",
+        "\n",
+        "    print(f\"Hour {hour}: ✅ Temperature matches expected value\")\n",
+        "\n",
+        "# Close the driver\n",
+        "driver.quit()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TqhdPGIZ_4VO",
+        "outputId": "c1fb83f1-8715-4394-c81b-3e65c50ff853"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hour 0: ✅ Temperature matches expected value\n",
+            "Hour 1: ✅ Temperature matches expected value\n",
+            "Hour 2: ✅ Temperature matches expected value\n",
+            "Hour 3: ✅ Temperature matches expected value\n",
+            "Hour 4: ✅ Temperature matches expected value\n",
+            "Hour 5: ✅ Temperature matches expected value\n",
+            "Hour 6: ✅ Temperature matches expected value\n",
+            "Hour 7: ✅ Temperature matches expected value\n",
+            "Hour 8: ✅ Temperature matches expected value\n",
+            "Hour 9: ✅ Temperature matches expected value\n",
+            "Hour 10: ✅ Temperature matches expected value\n",
+            "Hour 11: ✅ Temperature matches expected value\n",
+            "Hour 12: ✅ Temperature matches expected value\n",
+            "Hour 13: ✅ Temperature matches expected value\n",
+            "Hour 14: ✅ Temperature matches expected value\n",
+            "Hour 15: ✅ Temperature matches expected value\n",
+            "Hour 16: ✅ Temperature matches expected value\n",
+            "Hour 17: ✅ Temperature matches expected value\n",
+            "Hour 18: ✅ Temperature matches expected value\n",
+            "Hour 19: ✅ Temperature matches expected value\n",
+            "Hour 20: ✅ Temperature matches expected value\n",
+            "Hour 21: ✅ Temperature matches expected value\n",
+            "Hour 22: ✅ Temperature matches expected value\n",
+            "Hour 23: ✅ Temperature matches expected value\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
